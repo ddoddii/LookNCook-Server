@@ -4,6 +4,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"lookncook/internal/config"
+	"lookncook/pkg/handlers"
 )
 
 func init() {
@@ -29,6 +30,8 @@ func main() {
 
 	config.DatabaseInit()
 	gorm := config.DB()
+
+	e.POST("/fridge", handlers.FridgeContentHandler)
 
 	dbGorm, err := gorm.DB()
 	if err != nil {
