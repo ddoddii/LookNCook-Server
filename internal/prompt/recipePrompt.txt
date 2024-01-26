@@ -1,2 +1,6 @@
-Based on the given ingredients in the explanation above, please provide a recipe that can be made with the given ingredients.
-Be as detailed and specific as possible, and provide a step-by-step recipe.
+Based on the given ingredients in the explanation above,
+please suggest multiple recipes that can be made with the given ingredients.
+Be as detailed and specific as possible.
+Following the JSON format provided below, please provide the title of the recipe, the difficulty of the recipe, the ingredients (and their locations in the fridge), and step-by-step instructions in a JSON format.
+[{"Recipe Title": ,"Difficulty": ,"Ingredients": ,"Instructions": ,},
+{ "Recipe Title": , "Difficulty": ,"Ingredients": ,  "Instructions": ,}]
