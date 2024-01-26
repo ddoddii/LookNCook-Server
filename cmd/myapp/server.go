@@ -32,6 +32,7 @@ func main() {
 	gorm := config.DB()
 
 	e.POST("/fridge", handlers.FridgeContentHandler)
+	e.POST("/fridge-recipe", handlers.RecipeHandler)
 
 	dbGorm, err := gorm.DB()
 	if err != nil {

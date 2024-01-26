@@ -12,9 +12,10 @@ func RecipeHandler(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, map[string]string{"error": "Error with image: " + err.Error()})
 	}
-	promptText, err := utils.ReadFileAsString("internal/prompt/recipePrompt.txt")
+	fridgeContent, recipeContent := services.GenerateRecipeFromFridgeContent(imgData)
 
-	content := services.GeminiImageToTextFunction(imgData, promptText)
-
-	return c.JSON(http.StatusOK, content)
+	return c.JSON(http.StatusOK, map[string]string{
+		"fridge": fridgeContent,
+		"recipe": recipeContent,
+	})
 }

@@ -1,19 +1,24 @@
 package services
 
-import "github.com/google/generative-ai-go/genai"
+import (
+	"lookncook/internal/utils"
+)
 
-func recipeGenFunction(fridgeContent string) *genai.Content {
+func recipeGenFunction(fridgeContent string) string {
 
 	recipe := GeminiTextGenFunction(fridgeContent)
-	return recipe
+	var recipeContent string = utils.GeminiContentToString(recipe)
+
+	return recipeContent
 }
 
-func GenerateRecipeFromFridgeContent(imgData []byte) (*genai.Content, error) {
-
+func GenerateRecipeFromFridgeContent(imgData []byte) (string, string) {
+	// fridge Content
 	fridgeContent := FridgeContentGenFunction(imgData)
 
 	// Use the fridge content as the prompt for generating the recipe
-	recipeContent := recipeGenFunction(fridgeContent)
+	promptText, _ := utils.ReadFileAsString("../../internal/prompt/recipePrompt.txt")
+	recipeContent := recipeGenFunction(fridgeContent + promptText)
 
-	return recipeContent, nil
+	return fridgeContent, recipeContent
 }

@@ -15,5 +15,7 @@ func FridgeContentHandler(c echo.Context) error {
 
 	content := services.FridgeContentGenFunction(imgData)
 
-	return c.JSON(http.StatusOK, content)
+	return c.JSON(http.StatusOK, map[string]string{
+		"fridge": content,
+	})
 }
