@@ -1,0 +1,1 @@
+Based on the given image of a refrigerator, please describe what kind of ingredients are in the fridge and where they are located. Be specific as possible, as if you are describing the fridge to a blind person.
