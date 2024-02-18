@@ -24,7 +24,6 @@ func InitFirebase() *firestore.Client {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fmt.Println("Success in connecting")
 	return client
 }
 
@@ -34,7 +33,6 @@ func AddDeviceIdAndFcmToken(deviceId string, fcmToken string, client *firestore.
 		"deviceId": deviceId,
 		"fcmToken": fcmToken,
 	})
-	fmt.Println("Success in adding fcmToken and deviceId")
 	if err != nil {
 		log.Fatalf("Failed adding new fcm token: %v", err)
 	}
