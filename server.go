@@ -22,24 +22,9 @@ func main() {
 		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
 	}))
 
-	e.GET("/ping", func(c echo.Context) error {
-		return c.JSON(200, map[string]string{
-			"message": "pong",
-		})
-	})
-
-	config.DatabaseInit()
-	gorm := config.DB()
-
 	e.POST("/fridge", handlers.FridgeContentHandler)
 	e.POST("/fridge-recipe", handlers.RecipeHandler)
-
-	dbGorm, err := gorm.DB()
-	if err != nil {
-		panic(err)
-	}
-
-	dbGorm.Ping()
+	e.POST("/fcmToken", handlers.FcmTokenHandler)
 
 	e.Logger.Fatal(e.Start(":1323"))
 }
