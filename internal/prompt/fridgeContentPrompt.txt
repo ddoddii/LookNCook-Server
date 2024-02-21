@@ -1,1 +1,5 @@
-Based on the given image of a refrigerator, please describe what kind of ingredients are in the fridge and where they are located. Be specific as possible, as if you are describing the fridge to a blind person.
+Based on the given image of a refrigerator, please describe what kind of ingredients are in the fridge and where they are located.
+Be specific as possible, as if you are describing the fridge to a blind person.
+Following the JSON format provided below, please provide the name of the ingredient, and the location of the ingredient, such as "On the top shelf, the first item is a bottle of milk" in a JSON format.
+[{"name": , "locationDescription": ,},
+{"name": , "locationDescription": ,}]

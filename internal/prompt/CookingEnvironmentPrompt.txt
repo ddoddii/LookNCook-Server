@@ -1,0 +1,3 @@
+Based on the given image of a kitchen, please describe the environment to a blind person, and also explain what utensils may be dangerous during the cooking process in a JSON format provided. Be as detailed and specific as possible. For instance, if there is a knife, you would need to inform where the handle of the knife is located. Following the JSON format provided below, please provide the type of the hazard, and what kind of danger can exist JSON format.
+DO NOT INCLUDE BACKTICKS IN THE RESPONSE.
+[{"type":, "content": },{"type":, "content":}]
