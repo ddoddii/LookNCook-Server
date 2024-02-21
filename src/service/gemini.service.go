@@ -1,4 +1,4 @@
-package services
+package service
 
 import (
 	"context"
@@ -8,7 +8,14 @@ import (
 	"os"
 )
 
-func GeminiTextGenFunction(text string) *genai.Content {
+type GeminiService interface {
+	GenerateTextFromText(text string) *genai.Content
+	GenerateTextFromImage(imgData []byte, text string) *genai.Content
+}
+
+type GeminiServiceImpl struct{}
+
+func (service *GeminiServiceImpl) GenerateTextFromText(text string) *genai.Content {
 	apiKey := os.Getenv("GEMINI_API_KEY")
 
 	ctx := context.Background()
@@ -32,7 +39,7 @@ func GeminiTextGenFunction(text string) *genai.Content {
 	return nil
 }
 
-func GeminiImageToTextFunction(imgData []byte, text string) *genai.Content {
+func (service *GeminiServiceImpl) GenerateTextFromImage(imgData []byte, text string) *genai.Content {
 
 	apiKey := os.Getenv("GEMINI_API_KEY")
 
@@ -41,7 +48,11 @@ func GeminiImageToTextFunction(imgData []byte, text string) *genai.Content {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer client.Close()
+	defer func() {
+		if client != nil {
+			client.Close()
+		}
+	}()
 
 	model := client.GenerativeModel("gemini-pro-vision")
 
@@ -58,4 +69,8 @@ func GeminiImageToTextFunction(imgData []byte, text string) *genai.Content {
 	}
 	return nil
 
+}
+
+func GeminiServiceInit() *GeminiServiceImpl {
+	return &GeminiServiceImpl{}
 }
