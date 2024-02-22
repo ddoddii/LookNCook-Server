@@ -10,7 +10,7 @@ import (
 
 type UserService interface {
 	AddUserDevice(deviceId string, fcmToken string) (model.UserDevice, error)
-	GetUserDevice(deviceId string) (model.UserDevice, error)
+	GetUserDevice(deviceId string) (model.UserDeviceResponse, error)
 }
 
 type UserServiceImpl struct {
@@ -39,7 +39,7 @@ func (service *UserServiceImpl) AddUserDevice(deviceId string, fcmToken string) 
 
 }
 
-func (service *UserServiceImpl) GetUserDevice(deviceId string) (model.UserDevice, error) {
+func (service *UserServiceImpl) GetUserDevice(deviceId string) (model.UserDeviceResponse, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), constant.FirestoreDefaultTimeout)
 	defer cancel()
 
@@ -53,12 +53,12 @@ func (service *UserServiceImpl) GetUserDevice(deviceId string) (model.UserDevice
 
 	doc, err := iter.Next()
 	if err != nil {
-		return model.UserDevice{}, err
+		return model.UserDeviceResponse{}, err
 	}
 
-	var userDevice = model.UserDevice{}
+	var userDevice = model.UserDeviceResponse{}
 	if err := doc.DataTo(&userDevice); err != nil {
-		return model.UserDevice{}, err
+		return model.UserDeviceResponse{}, err
 	}
 
 	return userDevice, nil
