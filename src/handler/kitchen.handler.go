@@ -33,14 +33,12 @@ func (handler *KitchenHandlerImpl) GetKitchenEnvironment(c echo.Context) error {
 		return model.NewCustomHTTPError(http.StatusBadRequest, "Error with image")
 	}
 
-	content, err := handler.kitchenService.GetCookingEnvironment(imgData)
-	if err != nil {
-		return model.NewCustomHTTPError(http.StatusInternalServerError, err)
+	hazard := handler.kitchenService.GetCookingEnvironmentHazards(imgData)
+	response := model.KitchenEnvironmentResponse{
+		Hazard: hazard,
 	}
 
-	return c.JSON(http.StatusOK, map[string]string{
-		"content": content,
-	})
+	return c.JSON(http.StatusOK, response)
 }
 
 func KitchenHandlerInit(kitchenService service.KitchenService) *KitchenHandlerImpl {
