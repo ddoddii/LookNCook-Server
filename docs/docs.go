@@ -43,7 +43,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/model.UserDevice"
+                            "$ref": "#/definitions/model.UserDeviceResponse"
                         }
                     },
                     "400": {
@@ -160,7 +160,7 @@ const docTemplate = `{
                 ],
                 "responses": {
                     "201": {
-                        "description": "Successfully added user device",
+                        "description": "Device added successfully",
                         "schema": {
                             "type": "object",
                             "additionalProperties": {
@@ -169,7 +169,7 @@ const docTemplate = `{
                         }
                     },
                     "400": {
-                        "description": "Invalid form data",
+                        "description": "Invalid body data",
                         "schema": {
                             "$ref": "#/definitions/model.CustomHTTPError"
                         }
@@ -196,6 +196,17 @@ const docTemplate = `{
                 }
             }
         },
+        "model.Ingredient": {
+            "type": "object",
+            "properties": {
+                "locationDescription": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "model.KitchenEnvironmentResponse": {
             "type": "object",
             "properties": {
@@ -204,13 +215,50 @@ const docTemplate = `{
                 }
             }
         },
+        "model.Recipe": {
+            "type": "object",
+            "properties": {
+                "difficulty": {
+                    "type": "string"
+                },
+                "ingredients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Ingredient"
+                    }
+                },
+                "instructions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Step"
+                    }
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        },
         "model.RecipeResponse": {
             "type": "object",
             "properties": {
-                "fridge": {
-                    "type": "string"
+                "ingredients": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Ingredient"
+                    }
                 },
-                "recipe": {
+                "recipes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Recipe"
+                    }
+                }
+            }
+        },
+        "model.Step": {
+            "type": "object",
+            "properties": {
+                "step": {
                     "type": "string"
                 }
             }
@@ -229,7 +277,15 @@ const docTemplate = `{
         "model.UserDeviceRequest": {
             "type": "object",
             "properties": {
-                "DeviceId": {
+                "deviceId": {
+                    "type": "string"
+                }
+            }
+        },
+        "model.UserDeviceResponse": {
+            "type": "object",
+            "properties": {
+                "fcmToken": {
                     "type": "string"
                 }
             }

@@ -6,16 +6,47 @@ definitions:
       message:
         type: string
     type: object
+  model.Ingredient:
+    properties:
+      locationDescription:
+        type: string
+      name:
+        type: string
+    type: object
   model.KitchenEnvironmentResponse:
     properties:
       content:
         type: string
     type: object
+  model.Recipe:
+    properties:
+      difficulty:
+        type: string
+      ingredients:
+        items:
+          $ref: '#/definitions/model.Ingredient'
+        type: array
+      instructions:
+        items:
+          $ref: '#/definitions/model.Step'
+        type: array
+      title:
+        type: string
+    type: object
   model.RecipeResponse:
     properties:
-      fridge:
-        type: string
-      recipe:
+      ingredients:
+        items:
+          $ref: '#/definitions/model.Ingredient'
+        type: array
+      recipes:
+        items:
+          $ref: '#/definitions/model.Recipe'
+        type: array
+    type: object
+  model.Step:
+    properties:
+      step:
         type: string
     type: object
   model.UserDevice:
@@ -27,7 +58,12 @@ definitions:
     type: object
   model.UserDeviceRequest:
     properties:
-      DeviceId:
+      deviceId:
+        type: string
+    type: object
+  model.UserDeviceResponse:
+    properties:
+      fcmToken:
         type: string
     type: object
 info:
@@ -51,7 +87,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/model.UserDevice'
+            $ref: '#/definitions/model.UserDeviceResponse'
         "400":
           description: Invalid Request Body or deviceID is required
           schema:
@@ -129,13 +165,13 @@ paths:
       - application/json
       responses:
         "201":
-          description: Successfully added user device
+          description: Device added successfully
           schema:
             additionalProperties:
               type: string
             type: object
         "400":
-          description: Invalid form data
+          description: Invalid body data
           schema:
             $ref: '#/definitions/model.CustomHTTPError'
         "500":
