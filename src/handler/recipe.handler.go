@@ -28,7 +28,7 @@ type RecipeHandlerImpl struct {
 func (handler *RecipeHandlerImpl) GetRecipe(c echo.Context) error {
 	imgData, err := utils.ExtractImageData(c, "image")
 	if err != nil {
-		return model.NewCustomHTTPError(http.StatusBadRequest, "Error with image"+err.Error())
+		return model.NewCustomHTTPError(http.StatusBadRequest, "Error with image "+err.Error())
 	}
 	ingredients, recipes := handler.recipeService.GenerateRecipeFromFridgeContent(imgData)
 
