@@ -1,0 +1,148 @@
+definitions:
+  model.CustomHTTPError:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+  model.KitchenEnvironmentResponse:
+    properties:
+      content:
+        type: string
+    type: object
+  model.RecipeResponse:
+    properties:
+      fridge:
+        type: string
+      recipe:
+        type: string
+    type: object
+  model.UserDevice:
+    properties:
+      deviceId:
+        type: string
+      fcmToken:
+        type: string
+    type: object
+  model.UserDeviceRequest:
+    properties:
+      DeviceId:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /GetFcmToken:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve device information based on the provided device ID.
+      parameters:
+      - description: DeviceId
+        in: body
+        name: userDeviceRequest
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserDeviceRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserDevice'
+        "400":
+          description: Invalid Request Body or deviceID is required
+          schema:
+            $ref: '#/definitions/model.CustomHTTPError'
+      summary: Get fcm Token
+      tags:
+      - user
+  /GetFridgeRecipe:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload an image of your fridge's contents to receive a recipe recommendation.
+      parameters:
+      - description: image
+        in: formData
+        name: image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Successfully generated recipe
+          schema:
+            $ref: '#/definitions/model.RecipeResponse'
+        "400":
+          description: Error with the provided image
+          schema:
+            $ref: '#/definitions/model.CustomHTTPError'
+      summary: Get a recipe based on a provided fridge image
+  /GetKitchenEnvironment:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Upload an image to analyze and get a description of the kitchen
+        environment.
+      parameters:
+      - description: image
+        in: formData
+        name: image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.KitchenEnvironmentResponse'
+        "400":
+          description: Error with image
+          schema:
+            $ref: '#/definitions/model.CustomHTTPError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/model.CustomHTTPError'
+      summary: Get kitchen environment from an image
+      tags:
+      - kitchen
+  /StoreUserDevice:
+    post:
+      consumes:
+      - application/json
+      description: Add a new device for a user with the provided device ID and FCM
+        token.
+      parameters:
+      - description: DeviceId
+        in: body
+        name: userDevice
+        required: true
+        schema:
+          $ref: '#/definitions/model.UserDevice'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Successfully added user device
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Invalid form data
+          schema:
+            $ref: '#/definitions/model.CustomHTTPError'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/model.CustomHTTPError'
+      summary: Add a new user device
+      tags:
+      - user
+swagger: "2.0"

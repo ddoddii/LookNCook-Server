@@ -29,3 +29,8 @@ type ApiResponse struct {
 	Ingredients []Ingredient `json:"ingredients"`
 	RecipeList  []Recipe     `json:"recipeList"`
 }
+
+type RecipeResponse struct {
+	Fridge string `json:"fridge"`
+	Recipe string `json:"recipe"`
+}

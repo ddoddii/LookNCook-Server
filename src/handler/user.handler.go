@@ -17,6 +17,16 @@ type UserHandlerImpl struct {
 	userService service.UserService
 }
 
+// GetUserDevice godoc
+// @Summary Get fcm Token
+// @Description Retrieve device information based on the provided device ID.
+// @Tags user
+// @Accept json
+// @Produce json
+// @Param userDeviceRequest body model.UserDeviceRequest true "DeviceId"
+// @Success 200 {object} model.UserDevice
+// @Failure 400 {object} model.CustomHTTPError "Invalid Request Body or deviceID is required"
+// @Router /GetFcmToken [get]
 func (handler *UserHandlerImpl) GetUserDevice(c echo.Context) error {
 	var userDeviceRequest model.UserDeviceRequest
 
@@ -38,6 +48,17 @@ func (handler *UserHandlerImpl) GetUserDevice(c echo.Context) error {
 	return c.JSON(http.StatusOK, userDevice)
 }
 
+// AddUserDevice godoc
+// @Summary Add a new user device
+// @Description Add a new device for a user with the provided device ID and FCM token.
+// @Tags user
+// @Accept json
+// @Produce json
+// @Param userDevice body model.UserDevice true "DeviceId" , "FcmToken"
+// @Success 201 {object} map[string]string "Successfully added user device"
+// @Failure 400 {object} model.CustomHTTPError "Invalid form data"
+// @Failure 500 {object} model.CustomHTTPError "Internal server error"
+// @Router /StoreUserDevice [post]
 func (handler *UserHandlerImpl) AddUserDevice(c echo.Context) error {
 	var userDevice model.UserDevice
 
