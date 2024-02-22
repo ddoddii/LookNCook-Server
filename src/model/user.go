@@ -12,5 +12,9 @@ type UserDevice struct {
 }
 
 type UserDeviceRequest struct {
-	DeviceId string `json:"DeviceId"`
+	DeviceId string `json:"deviceId"`
+}
+
+type UserDeviceResponse struct {
+	FcmToken string `json:"fcmToken"`
 }
