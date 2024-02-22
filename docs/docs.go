@@ -196,6 +196,17 @@ const docTemplate = `{
                 }
             }
         },
+        "model.Hazard": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            }
+        },
         "model.Ingredient": {
             "type": "object",
             "properties": {
@@ -210,8 +221,11 @@ const docTemplate = `{
         "model.KitchenEnvironmentResponse": {
             "type": "object",
             "properties": {
-                "content": {
-                    "type": "string"
+                "hazards": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/model.Hazard"
+                    }
                 }
             }
         },

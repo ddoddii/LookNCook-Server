@@ -6,6 +6,13 @@ definitions:
       message:
         type: string
     type: object
+  model.Hazard:
+    properties:
+      content:
+        type: string
+      type:
+        type: string
+    type: object
   model.Ingredient:
     properties:
       locationDescription:
@@ -15,8 +22,10 @@ definitions:
     type: object
   model.KitchenEnvironmentResponse:
     properties:
-      content:
-        type: string
+      hazards:
+        items:
+          $ref: '#/definitions/model.Hazard'
+        type: array
     type: object
   model.Recipe:
     properties:

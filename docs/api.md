@@ -194,3 +194,38 @@
   ]
 }
 ```
+
+## Kitchen Environment
+
+- Example Response for kitchen hazard environment
+
+```json
+{
+  "hazards": [
+    {
+      "type": "utensil",
+      "content": "There is a chef holding a knife in the kitchen. The handle of the knife is located at the bottom right corner of the image."
+    },
+    {
+      "type": "hazard",
+      "content": "The knife is sharp and could cut the chef if they are not careful."
+    },
+    {
+      "type": "utensil",
+      "content": "There is a hot stove in the kitchen. The stove is located in the middle of the image."
+    },
+    {
+      "type": "hazard",
+      "content": "The stove is hot and could burn the chef if they are not careful."
+    },
+    {
+      "type": "utensil",
+      "content": "There is a pot on the stove. The pot is located in the middle of the image."
+    },
+    {
+      "type": "hazard",
+      "content": "The pot is hot and could burn the chef if they are not careful."
+    }
+  ]
+}
+```
