@@ -30,12 +30,14 @@ func (handler *RecipeHandlerImpl) GetRecipe(c echo.Context) error {
 	if err != nil {
 		return model.NewCustomHTTPError(http.StatusBadRequest, "Error with image"+err.Error())
 	}
-	fridgeContent, recipeContent := handler.recipeService.GenerateRecipeFromFridgeContent(imgData)
+	ingredients, recipes := handler.recipeService.GenerateRecipeFromFridgeContent(imgData)
 
-	return c.JSON(http.StatusOK, map[string]string{
-		"fridge": fridgeContent,
-		"recipe": recipeContent,
-	})
+	response := model.RecipeResponse{
+		Ingredients: ingredients,
+		Recipes:     recipes,
+	}
+
+	return c.JSON(http.StatusOK, response)
 }
 
 func RecipeHandlerInit(recipeService service.RecipeService) *RecipeHandlerImpl {

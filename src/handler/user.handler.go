@@ -24,7 +24,7 @@ type UserHandlerImpl struct {
 // @Accept json
 // @Produce json
 // @Param userDeviceRequest body model.UserDeviceRequest true "DeviceId"
-// @Success 200 {object} model.UserDevice
+// @Success 200 {object} model.UserDeviceResponse
 // @Failure 400 {object} model.CustomHTTPError "Invalid Request Body or deviceID is required"
 // @Router /GetFcmToken [get]
 func (handler *UserHandlerImpl) GetUserDevice(c echo.Context) error {
@@ -55,15 +55,15 @@ func (handler *UserHandlerImpl) GetUserDevice(c echo.Context) error {
 // @Accept json
 // @Produce json
 // @Param userDevice body model.UserDevice true "DeviceId" , "FcmToken"
-// @Success 201 {object} map[string]string "Successfully added user device"
-// @Failure 400 {object} model.CustomHTTPError "Invalid form data"
+// @Success 201 {object} map[string]string "Device added successfully"
+// @Failure 400 {object} model.CustomHTTPError "Invalid body data"
 // @Failure 500 {object} model.CustomHTTPError "Internal server error"
 // @Router /StoreUserDevice [post]
 func (handler *UserHandlerImpl) AddUserDevice(c echo.Context) error {
 	var userDevice model.UserDevice
 
 	if err := c.Bind(&userDevice); err != nil {
-		return model.NewCustomHTTPError(http.StatusBadRequest, "Invalid form data")
+		return model.NewCustomHTTPError(http.StatusBadRequest, "Invalid body data")
 	}
 
 	_, err := handler.userService.AddUserDevice(userDevice.DeviceId, userDevice.FcmToken)

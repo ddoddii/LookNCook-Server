@@ -7,7 +7,7 @@ import (
 func ReadFileAsString(filepath string) (string, error) {
 	data, err := ioutil.ReadFile(filepath)
 	if err != nil {
-		return "", err
+		return "Error Reading file as string", err
 	}
 	return string(data), nil
 }

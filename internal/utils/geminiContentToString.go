@@ -25,7 +25,8 @@ func GeminiContentToString(content *genai.Content) string {
 }
 
 func cleanResponse(resp string) string {
-	resp = strings.Replace(resp, "\\n", "\n", -1)
+	resp = strings.Trim(resp, "\"")
+	resp = strings.Replace(resp, "\\n", "", -1)
 	resp = strings.Replace(resp, "\\\"", "\"", -1)
 	resp = strings.Replace(resp, "\\", "", -1)
 
