@@ -7,187 +7,183 @@
 {
   "ingredients": [
     {
-      "name": "bell peppers",
-      "locationDescription": "On the bottom shelf, on the left side of the peppers"
+      "name": "Burrata Cheese",
+      "locationDescription": "On the middle shelf, on the left"
     },
     {
-      "name": "eggs",
-      "locationDescription": "On the middle shelf, in the middle of the shelf"
+      "name": "Butter",
+      "locationDescription": "On the middle shelf, on the left"
     },
     {
-      "name": "tomatoes",
-      "locationDescription": "On the bottom shelf, on the right side of the tomatoes"
+      "name": "Cream Cheese",
+      "locationDescription": "On the middle shelf, on the left"
     },
     {
-      "name": "cucumbers",
-      "locationDescription": "On the bottom shelf, next to the tomatoes, on the right side"
+      "name": "Yogurt",
+      "locationDescription": "On the middle shelf, on the left"
     },
     {
-      "name": "salad mix",
-      "locationDescription": "On the bottom shelf, in the container with the blue lid, next to the cucumbers"
+      "name": "Milk",
+      "locationDescription": "On the middle shelf, on the right"
     },
     {
-      "name": "chicken",
-      "locationDescription": "On the middle shelf, on the right side"
+      "name": "Eggs",
+      "locationDescription": "On the bottom shelf, on the right"
     },
     {
-      "name": "beef",
-      "locationDescription": "On the bottom shelf, on the left side, under the bell peppers"
+      "name": "Tupperware with food",
+      "locationDescription": "On the bottom shelf, in the middle"
     },
     {
-      "name": "broccoli",
-      "locationDescription": "On the bottom shelf, on the left side, next to the beef"
+      "name": "Spam",
+      "locationDescription": "On the top shelf, on the right"
     },
     {
-      "name": "rice",
-      "locationDescription": "On the top shelf, second container from the left"
+      "name": "Jar of something",
+      "locationDescription": "On the top shelf, in the middle"
     },
     {
-      "name": "pasta",
-      "locationDescription": "On the top shelf, third container from the left"
+      "name": "Green onions",
+      "locationDescription": "On the top shelf, on the left"
     },
     {
-      "name": "buckwheat",
-      "locationDescription": "On the top shelf, fourth container from the left"
+      "name": "Flower-decorated pitcher with a purple liquid",
+      "locationDescription": "On the middle shelf, on the right"
     },
     {
-      "name": "cottage cheese",
-      "locationDescription": "On the top shelf, first container on the right"
-    },
-    {
-      "name": "beans",
-      "locationDescription": "On the top shelf, second container from the right"
+      "name": "Bread",
+      "locationDescription": "On the middle shelf, in the middle"
     }
   ],
   "recipes": [
     {
-      "title": "",
+      "title": "Scrambled Eggs and Toast",
       "difficulty": "Easy",
       "ingredients": [
         {
-          "name": "chicken",
-          "locationDescription": "On the middle shelf, on the right side"
+          "name": "Eggs",
+          "locationDescription": "On the bottom shelf, on the right"
         },
         {
-          "name": "bell peppers",
-          "locationDescription": "On the bottom shelf, on the left side of the peppers"
+          "name": "Milk",
+          "locationDescription": "On the middle shelf, on the right"
         },
         {
-          "name": "broccoli",
-          "locationDescription": "On the bottom shelf, on the left side, next to the beef"
+          "name": "Butter",
+          "locationDescription": "On the middle shelf, on the left"
         },
         {
-          "name": "rice",
-          "locationDescription": "On the top shelf, second container from the left"
-        },
-        {
-          "name": "soy sauce",
-          "locationDescription": "(Not listed in the ingredients - assume it's available)"
+          "name": "Bread",
+          "locationDescription": "On the middle shelf, in the middle"
         }
       ],
       "instructions": [
         {
-          "step": "Cut the chicken into small pieces."
+          "step": "Crack the eggs into a bowl and whisk them together with a fork."
         },
         {
-          "step": "Heat a large skillet over medium-high heat. Add the chicken and cook until browned."
+          "step": "Heat a pan over medium heat and add a knob of butter."
         },
         {
-          "step": "Add the bell peppers and broccoli to the skillet and cook until tender."
+          "step": "Pour the egg mixture into the pan and let it cook for 2-3 minutes, stirring constantly."
         },
         {
-          "step": "Add the rice and soy sauce. Stir to combine."
+          "step": "Season the eggs with salt and pepper to taste."
         },
         {
-          "step": "Serve immediately."
+          "step": "Toast the bread in a toaster or on a griddle."
+        },
+        {
+          "step": "Serve the scrambled eggs on the toast and enjoy!"
         }
       ]
     },
     {
-      "title": "",
+      "title": "Cheese and Yogurt Parfait",
       "difficulty": "Easy",
       "ingredients": [
         {
-          "name": "tomatoes",
-          "locationDescription": "On the bottom shelf, on the right side of the tomatoes"
+          "name": "Yogurt",
+          "locationDescription": "On the middle shelf, on the left"
         },
         {
-          "name": "cucumbers",
-          "locationDescription": "On the bottom shelf, next to the tomatoes, on the right side"
+          "name": "Burrata Cheese",
+          "locationDescription": "On the middle shelf, on the left"
         },
         {
-          "name": "salad mix",
-          "locationDescription": "On the bottom shelf, in the container with the blue lid, next to the cucumbers"
+          "name": "Green onions",
+          "locationDescription": "On the top shelf, on the left"
         },
         {
-          "name": "olive oil",
-          "locationDescription": "(Not listed in the ingredients - assume it's available)"
-        },
-        {
-          "name": "vinegar",
-          "locationDescription": "(Not listed in the ingredients - assume it's available)"
+          "name": "Tupperware with food",
+          "locationDescription": "On the bottom shelf, in the middle"
         }
       ],
       "instructions": [
         {
-          "step": "Slice the tomatoes and cucumbers."
+          "step": "Layer 1/2 cup of yogurt, 1/2 cup of burrata cheese, and 1/4 cup of chopped green onions in a parfait glass or jar."
         },
         {
-          "step": "In a large bowl, combine the tomatoes, cucumbers, and salad mix."
+          "step": "Repeat the layers until the glass is full."
         },
         {
-          "step": "Drizzle with olive oil and vinegar. Toss to coat."
+          "step": "Top with a dollop of yogurt and a sprinkle of chopped green onions."
+        },
+        {
+          "step": "Serve immediately or chill for later."
+        }
+      ]
+    },
+    {
+      "title": "Creamy Spinach Pasta",
+      "difficulty": "Moderate",
+      "ingredients": [
+        {
+          "name": "Cream Cheese",
+          "locationDescription": "On the middle shelf, on the left"
+        },
+        {
+          "name": "Spinach",
+          "locationDescription": "Tupperware with food, On the bottom shelf, in the middle"
+        },
+        {
+          "name": "Milk",
+          "locationDescription": "On the middle shelf, on the right"
+        },
+        {
+          "name": "Butter",
+          "locationDescription": "On the middle shelf, on the left"
+        },
+        {
+          "name": "Pasta",
+          "locationDescription": "Not mentioned"
+        },
+        {
+          "name": "Salt and pepper",
+          "locationDescription": "Not mentioned"
+        }
+      ],
+      "instructions": [
+        {
+          "step": "Cook the pasta according to the package instructions."
+        },
+        {
+          "step": "While the pasta is cooking, melt the butter in a large skillet over medium heat."
+        },
+        {
+          "step": "Add the spinach and cook until wilted."
+        },
+        {
+          "step": "Stir in the cream cheese and milk until melted and smooth."
         },
         {
           "step": "Season with salt and pepper to taste."
         },
         {
-          "step": "Serve immediately."
-        }
-      ]
-    },
-    {
-      "title": "",
-      "difficulty": "Easy",
-      "ingredients": [
-        {
-          "name": "bell peppers",
-          "locationDescription": "On the bottom shelf, on the left side of the peppers"
+          "step": "Drain the pasta and add it to the skillet with the sauce."
         },
         {
-          "name": "eggs",
-          "locationDescription": "On the middle shelf, in the middle of the shelf"
-        },
-        {
-          "name": "cheese",
-          "locationDescription": "(Not listed in the ingredients - assume it's available)"
-        },
-        {
-          "name": "butter",
-          "locationDescription": "(Not listed in the ingredients - assume it's available)"
-        }
-      ],
-      "instructions": [
-        {
-          "step": "Dice the bell peppers."
-        },
-        {
-          "step": "In a large bowl, whisk together the eggs and cheese."
-        },
-        {
-          "step": "Heat a large skillet over medium heat. Add the butter and melt."
-        },
-        {
-          "step": "Pour the egg mixture into the skillet and cook until cooked through."
-        },
-        {
-          "step": "Add the bell peppers and cook until softened."
-        },
-        {
-          "step": "Season with salt and pepper to taste."
-        },
-        {
-          "step": "Serve immediately."
+          "step": "Toss to coat the pasta in the sauce and serve."
         }
       ]
     }
