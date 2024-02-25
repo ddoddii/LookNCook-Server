@@ -1,17 +1,14 @@
 # Look-N-Cook-Server
 
-------
 This repository is go server for **look-n-cook** project, **google solution challenge 2024**
 
 ## What this is made of?
 
-----
 
 This server if made with `golang` and `echo framework`.
 
 ## How does it work?
 
-----
 
 When client sends a photo of the fridge to the server,
 the server generates the location of each food in the fridge and recipes user can make with these food with gemini api.
@@ -23,8 +20,6 @@ This server calls gemini api and sends the results to the client.
 ![_lookncook-server](https://github.com/ddoddii/ddoddii.github.io/assets/95014836/89cc3e3f-15fc-4a5a-bdd2-a0943c2cfa9f)
 
 ## API reference
-
-
 
 | using                                      | method | url                      | body        | response               |
 |--------------------------------------------|--------|--------------------------|-------------|------------------------|
